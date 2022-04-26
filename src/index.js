@@ -2,26 +2,42 @@ import './style.css';
 import loadPage from './pageLoad/pageframe';
 import loadHome from './pageLoad/homePage';
 import aboutPage from './pageLoad/aboutPage';
+import menuPage from './pageLoad/menu';
+// import { javascript } from 'webpack';
 // import { javascript } from 'webpack';
 
-const inactive = document.getElementsByClassName('inactive');
-function hideInactive() {
-  for (let i = 0; i < inactive.length; i++) {
-    inactive[i].style.display = 'none';
-  }
-}
 
+
+// const menu = document.getElementById('menu');
 loadPage();
 loadHome();
-
-//assign class "active" for current open tab and inactive the other 2 tabs which will remain with display none.
-// on click. active class will be assigned to the "home" "menu" "about" div respectively
-
+aboutPage();
+menuPage();
+const home = document.getElementById('home');
+const about = document.getElementById('about');
+const menu = document.getElementById('menu')
 const homeBtn = document.getElementById('tabHome');
-homeBtn.addEventListener('click', (e) => {});
+
+homeBtn.addEventListener('click', (e) => {
+    home.classList.remove('inactive');
+    menu.classList.add('inactive');
+    about.classList.add('inactive')
+})
 
 const aboutBtn = document.getElementById('tabAbout');
-aboutBtn.addEventListener('click', (e) => {});
+aboutBtn.addEventListener('click', (e) => {
+    home.classList.add('inactive');
+    menu.classList.add('inactive');
+    about.classList.remove('inactive');
+
+});
 
 const menuBtn = document.getElementById('tabMenu');
-menuBtn.addEventListener('click', (e) => {});
+menuBtn.addEventListener('click', () => {
+    home.classList.add('inactive');
+    about.classList.add('inactive');
+    menu.classList.remove('inactive');
+});
+
+
+

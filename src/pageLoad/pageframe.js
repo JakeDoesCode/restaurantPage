@@ -11,7 +11,6 @@ function pageShell() {
   createDiv(content, 'title');
   createDiv(content, 'home');
   const home = document.getElementById('home');
-  home.classList.add('active');
   createDiv(home, 'info');
   createDiv(home, 'hours');
   createDiv(home, 'loc');
